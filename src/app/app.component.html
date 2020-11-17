@@ -1,0 +1,58 @@
+<hello name="{{ name }}"></hello>
+<div class="form-group">
+	<label for="Question">Question:</label><br>
+	<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Question"></textarea>
+</div><br>
+<div class="form-group">
+	<label for="usr">Option 1: </label>
+	<input type="text" class="form-control" id="usr1" [(ngModel)]="Opt1" >
+	<input type="radio" name="optradio" value="{{Opt1}}" [(ngModel)]="Answer">
+</div><br>
+	<div class="form-group">
+		<label for="usr">Option 2: </label>
+		<input type="text" class="form-control" id="usr2" [(ngModel)]="Opt2">
+		<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt2}}">
+</div><br>
+		<div class="form-group">
+			<label for="usr">Option 3: </label>
+			<input type="text" class="form-control" id="usr3" [(ngModel)]="Opt3">
+			<input type="radio" name="optradio" value="{{Opt3}}" [(ngModel)]="Answer">
+</div><br>
+			<div class="form-group">
+				<label for="usr">Option 4: </label>
+				<input type="text" class="form-control" id="usr4" [(ngModel)]="Opt4">
+				<input type="radio" name="optradio" value="{{Opt4}}" [(ngModel)]="Answer">
+</div><br>
+				<div class="form-group">
+					<label for="Question">Hint:</label><br>
+					<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Hint"></textarea>
+				</div><br>
+				<div class="form-group">
+					<label for="Question">Explanation:</label><br>
+					<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Exp"></textarea>
+				</div><br>
+				<button (click)="SubmitQ()">Submit</button>
+				<button (click)="reset()">Reset</button>
+				<angular2csv [data]="Qtp" filename="test.csv" [options]="options"></angular2csv><br>
+				<table id="excel-table" border #table>
+					<tr>
+						<th>Question</th>
+						<th>Option 1</th>
+						<th>Option 2</th>
+						<th>Option 3</th>
+						<th>Option 4</th>
+						<th>Answer</th>
+						<th>Hint</th>
+						<th>Explanation</th>
+					</tr>
+					<tr *ngFor="let sup of Qtp">
+						<td>{{ sup.Quest }}</td>
+						<td>{{ sup.Option1 }}</td>
+						<td>{{ sup.Option2 }}</td>
+						<td>{{ sup.Option3 }}</td>
+						<td>{{ sup.Option4 }}</td>
+						<td>{{ sup.Answer }}</td>
+						<td>{{ sup.Hint }}</td>
+						<td>{{ sup.Explanation }}</td>
+					</tr>
+				</table>
