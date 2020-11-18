@@ -9,7 +9,6 @@ import { Quest } from "./Questonnaire";
 })
 export class AppComponent {
   name = "User";
-  fileName = "ExcelSheet.xlsx";
   Qt: Quest;
   Qtp: Quest[] = [];
   Opt1: string;
@@ -21,6 +20,7 @@ export class AppComponent {
   Hint: string;
   Exp: string;
   Qnum: number = 0;
+  SubTopic: string;
   updateBtn: boolean = true;
   options = {
     fieldSeparator: ",",
@@ -28,6 +28,7 @@ export class AppComponent {
     decimalseparator: ".",
     showLabels: false,
     headers: [
+      "Sub Topic",
       "Question",
       "Option1",
       "Option2",
@@ -42,6 +43,7 @@ export class AppComponent {
     useBom: false,
     removeNewLines: true,
     keys: [
+      "SubTopic",
       "Quest",
       "Option1",
       "Option2",
@@ -60,6 +62,7 @@ export class AppComponent {
       if (this.Qtp[x].Qnum == Q) {
         console.log("Satisfied", Q);
         this.Qnum = this.Qtp[x].Qnum;
+        this.SubTopic = this.Qtp[x].SubTopic;
         this.Question = this.Qtp[x].Quest;
         this.Opt1 = this.Qtp[x].Option1;
         this.Opt2 = this.Qtp[x].Option2;
@@ -76,6 +79,7 @@ export class AppComponent {
     ++this.Qnum;
     this.Qt = new Quest(
       this.Qnum,
+      this.SubTopic,
       this.Question,
       this.Opt1,
       this.Opt2,
@@ -104,6 +108,7 @@ export class AppComponent {
     for (x in this.Qtp) {
       if (this.Qtp[x].Qnum == Q) {
         this.Qtp[x].Qnum = this.Qnum;
+        this.Qtp[x].SubTopic = this.SubTopic;
         this.Qtp[x].Quest = this.Question;
         this.Qtp[x].Option1 = this.Opt1;
         this.Qtp[x].Option2 = this.Opt2;

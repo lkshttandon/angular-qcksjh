@@ -1,5 +1,6 @@
 export class Quest {
   Qnum: number;
+  SubTopic: string;
   Quest: string;
   Option1: string;
   Option2: string;
@@ -11,6 +12,7 @@ export class Quest {
 
   constructor(
     Qnum: number,
+    SubTopic: string,
     Quest: string,
     Option1: string,
     Option2: string,
@@ -21,6 +23,7 @@ export class Quest {
     Explanation: string
   ) {
     this.Qnum = Qnum;
+    this.SubTopic = SubTopic;
     this.Quest = Quest;
     this.Option1 = Option1;
     this.Option2 = Option2;
