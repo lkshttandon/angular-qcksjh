@@ -1,4 +1,5 @@
 export class Quest {
+  Qnum: number;
   Quest: string;
   Option1: string;
   Option2: string;
@@ -9,6 +10,7 @@ export class Quest {
   Explanation: string;
 
   constructor(
+    Qnum: number,
     Quest: string,
     Option1: string,
     Option2: string,
@@ -18,6 +20,7 @@ export class Quest {
     Hint: string,
     Explanation: string
   ) {
+    this.Qnum = Qnum;
     this.Quest = Quest;
     this.Option1 = Option1;
     this.Option2 = Option2;

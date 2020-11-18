@@ -1,61 +1,87 @@
 <hello name="{{ name }}"></hello>
-<img src="https://thumbs.gfycat.com/EntireWhirlwindAnteater.webp">
-<!--
+<div class="container">
+	<img src="https://thumbs.gfycat.com/EntireWhirlwindAnteater.webp">
+	<!--
 <img src="https://thumbs.gfycat.com/EnlightenedFinishedDragon.webp" height="120"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2f4b2cd-6dda-45f6-b700-b0c519fa0247/danr5af-4e73542d-44e2-431a-b136-90835a780508.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9lMmY0YjJjZC02ZGRhLTQ1ZjYtYjcwMC1iMGM1MTlmYTAyNDcvZGFucjVhZi00ZTczNTQyZC00NGUyLTQzMWEtYjEzNi05MDgzNWE3ODA1MDguZ2lmIn1dXX0.mSjwutlX_0pXmSzzLps0w36Zse0AFvh6kMXkSFf7838" height="120"> -->
-<div class="form-group">
-	<label for="Question">Question:</label><br>
-	<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Question"></textarea>
-</div><br>
-<div class="form-group">
-	<label for="usr">Option 1: </label>
-	<input type="text" class="form-control" id="usr1" [(ngModel)]="Opt1" >
-	<input type="radio" name="optradio" value="{{Opt1}}" [(ngModel)]="Answer">
-</div><br>
-	<div class="form-group">
-		<label for="usr">Option 2: </label>
-		<input type="text" class="form-control" id="usr2" [(ngModel)]="Opt2">
-		<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt2}}">
-</div><br>
-		<div class="form-group">
-			<label for="usr">Option 3: </label>
-			<input type="text" class="form-control" id="usr3" [(ngModel)]="Opt3">
-			<input type="radio" name="optradio" value="{{Opt3}}" [(ngModel)]="Answer">
-</div><br>
+
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
 			<div class="form-group">
-				<label for="usr">Option 4: </label>
-				<input type="text" class="form-control" id="usr4" [(ngModel)]="Opt4">
-				<input type="radio" name="optradio" value="{{Opt4}}" [(ngModel)]="Answer">
-</div><br>
+				<label for="Question">Question:</label><br>
+				<textarea class="form-control" rows="5" id="comment" name="Question" [(ngModel)]="Question"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="usr">Option 1: </label>
+				<div class="row">
+					<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt1}}">
+					<div class="col-md-8 col-sm-8">
+						<input type="text" class="form-control" id="usr1" [(ngModel)]="Opt1"></div>
+					</div>
+				</div>
 				<div class="form-group">
-					<label for="Question">Hint:</label><br>
-					<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Hint"></textarea>
-				</div><br>
-				<div class="form-group">
-					<label for="Question">Explanation:</label><br>
-					<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Exp"></textarea>
-				</div><br>
-				<button (click)="SubmitQ()">Submit</button>
-				<button (click)="reset()">Reset</button>
-				<angular2csv [data]="Qtp" filename="test.csv" [options]="options"></angular2csv><br>
-				<table id="excel-table" border #table>
-					<tr>
-						<th>Question</th>
-						<th>Option 1</th>
-						<th>Option 2</th>
-						<th>Option 3</th>
-						<th>Option 4</th>
-						<th>Answer</th>
-						<th>Hint</th>
-						<th>Explanation</th>
-					</tr>
-					<tr *ngFor="let sup of Qtp">
-						<td>{{ sup.Quest }}</td>
-						<td>{{ sup.Option1 }}</td>
-						<td>{{ sup.Option2 }}</td>
-						<td>{{ sup.Option3 }}</td>
-						<td>{{ sup.Option4 }}</td>
-						<td>{{ sup.Answer }}</td>
-						<td>{{ sup.Hint }}</td>
-						<td>{{ sup.Explanation }}</td>
-					</tr>
-				</table>
+					<label for="usr">Option 2: </label>
+					<div class="row">
+						<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt2}}">
+						<div class="col-md-8 col-sm-8">
+							<input type="text" class="form-control" id="usr2" [(ngModel)]="Opt2"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="usr">Option 3: </label>
+						<div class="row">
+							<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt3}}">
+							<div class="col-md-8 col-sm-8">
+								<input type="text" class="form-control" id="usr3" [(ngModel)]="Opt3"></div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="usr">Option 4: </label>
+							<div class="row">
+								<input type="radio" name="optradio" [(ngModel)]="Answer" value="{{Opt4}}">
+								<div class="col-md-8 col-sm-8">
+									<input type="text" class="form-control" id="usr4" [(ngModel)]="Opt4"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<div class="form-group">
+								<label for="Question">Hint:</label><br>
+								<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Hint"></textarea>
+							</div><br>
+							<div class="form-group">
+								<label for="Question">Explanation:</label><br>
+								<textarea class="form-control" rows="5" id="comment" [(ngModel)]="Exp"></textarea>
+							</div>
+
+							<button class="btn" style="margin:10px" (click)="SubmitQ()">Submit</button>
+							<button class="btn" style="margin:10px"(click)="reset()">Reset</button>
+							<button class="btn" style="margin:10px" (click)="Update(Qnum)" [disabled]="updateBtn">Update Data</button>
+						</div>
+					</div>
+					<angular2csv [data]="Qtp" filename="test.csv" [options]="options"></angular2csv>
+					<table id="excel-table" class="table" #table>
+						<tr>
+							<th>#</th>
+							<th>Question</th>
+							<th>Option 1</th>
+							<th>Option 2</th>
+							<th>Option 3</th>
+							<th>Option 4</th>
+							<th>Answer</th>
+							<th>Hint</th>
+							<th>Explanation</th>
+						</tr>
+						<tr *ngFor="let sup of Qtp">
+							<td>{{ sup.Qnum}}</td>
+							<td>{{ sup.Quest }}</td>
+							<td>{{ sup.Option1 }}</td>
+							<td>{{ sup.Option2 }}</td>
+							<td>{{ sup.Option3 }}</td>
+							<td>{{ sup.Option4 }}</td>
+							<td>{{ sup.Answer }}</td>
+							<td>{{ sup.Hint }}</td>
+							<td>{{ sup.Explanation }}</td>
+							<td><button class="btn-alert" (click)="Edit(sup.Qnum)">Edit</button></td>
+						</tr>
+					</table>
+				</div>
